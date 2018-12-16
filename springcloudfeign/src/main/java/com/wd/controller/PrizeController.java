@@ -34,7 +34,7 @@ public class PrizeController {
      * @param:
      * @return java.util.List<com.wd.model.PrizeBean>
      **/
-    @RequestMapping("queryPrizeList")
+    @RequestMapping("queryList")
     @ResponseBody
     public List<PrizeBean> queryPrizeList(){
         return prizeServiceFeign.queryPrizeList();
