@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wd.mapper.PrizeMapper">
+    <select id="queryPrizeList" resultType="com.wd.model.PrizeBean">
+        select
+            t.prize_id as prizeId,
+            t.prize_name as prizeNmae,
+            t.prize_sum as prizeSum,
+            t.prize_status as  prizeStatus
+        from t_prize t
+    </select>
+    <insert id="savePrize" parameterType="com.wd.model.PrizeBean">
+        insert into t_prize(prize_id, prize_name, prize_sum, prize_status)
+              values (#{prizeId},#{prizeNmae},#{prizeSum},#{prizeStatus})
+    </insert>
+    <update id="editPrize" parameterType="com.wd.model.PrizeBean">
+        update t_prize set prize_name = #{prizeNmae},prize_sum = #{prizeSum}, prize_status = #{prizeStatus}
+          where prize_id = #{prizeId}
+    </update>
+    <delete id="deletePrize" parameterType="string">
+        delete from t_prize where prize_id = #{value}
+    </delete>
+</mapper>
